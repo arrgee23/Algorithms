@@ -1,4 +1,18 @@
+/*
+* Rahul Gautam
+* Indian Statistical Institute
+* Comparison of heapsort, mergesort, quicksort
+* and their iterative versions
+* 09th Mar 2019
+*/
+
 #include "functions.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <assert.h>
+
 void printArr(int* arr,int n)
 {
     int i =0;

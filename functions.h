@@ -7,9 +7,10 @@
 #include <assert.h>
 
 #define BIG_INT 99999999
-#define MAX_ARR_SIZE 1000001
+#define MAX_ARR_SIZE 100001
 #define ITERATION_FOR_AVG 5
 #define DEBUG
+
 void printArr(int* arr,int n);
 void printRange(int* arr,int l,int r);
 
@@ -45,4 +46,5 @@ void mergeSort(int* arr,int l, int r);
 
 int* generateRandArr(int size);
 int verifySorted(int* arr,int n);
+
 #endif
