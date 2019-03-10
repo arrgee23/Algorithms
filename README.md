@@ -9,3 +9,5 @@ Implementation of algorithmic problems in c as part of Mtech Course.
 * timing fuctions
 * Sort checking function
 * recursive and iterative versions of quicksort, mergesort, heapsort
+* plotting using pyplot and saving to png files.
+
