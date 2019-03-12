@@ -6,8 +6,10 @@
 #include <time.h>
 #include <assert.h>
 
+#define INCREMENT_SIZE 5000
+
 #define BIG_INT 99999999
-#define MAX_ARR_SIZE 100001
+#define MAX_ARR_SIZE 150001
 #define ITERATION_FOR_AVG 5
 #define DEBUG
 

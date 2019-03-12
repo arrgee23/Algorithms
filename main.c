@@ -47,7 +47,7 @@ void qsVqsItr()
             time1 += time;
 
             #ifdef DEBUG
-            assert(verifySorted(arr,arrSize));
+            //assert(verifySorted(arr,arrSize));
             #endif
             free(arr);
         }
@@ -63,7 +63,7 @@ void qsVqsItr()
             time2 += time;
 
             #ifdef DEBUG
-            assert(verifySorted(arr,arrSize));
+            //assert(verifySorted(arr,arrSize));
             #endif
             free(arr);
         }
@@ -77,7 +77,7 @@ void qsVqsItr()
         printf("size=%d quickSort=%lf quickSortItr = %lf \n",arrSize,time1,time2);
         #endif
         
-        arrSize+=10000;
+        arrSize+=INCREMENT_SIZE;
     }
     fclose(fptr);
 
@@ -116,7 +116,7 @@ void hsVhsItr()
             time1 += time;
 
             #ifdef DEBUG
-            assert(verifySorted(arr,arrSize));
+            //assert(verifySorted(arr,arrSize));
             #endif
             free(arr);
         }
@@ -132,7 +132,7 @@ void hsVhsItr()
             time2 += time;
 
             #ifdef DEBUG
-            assert(verifySorted(arr,arrSize));
+            //assert(verifySorted(arr,arrSize));
             #endif
             free(arr);
         }
@@ -146,7 +146,7 @@ void hsVhsItr()
         printf("size=%d heapSort=%lf heapSortItr = %lf \n",arrSize,time1,time2);
         #endif
         
-        arrSize+=10000;
+        arrSize+=INCREMENT_SIZE;
     }
     fclose(fptr);
 
@@ -185,7 +185,7 @@ void msVmsItr()
             time1 += time;
 
             #ifdef DEBUG
-            assert(verifySorted(arr,arrSize));
+            //assert(verifySorted(arr,arrSize));
             #endif
             free(arr);
         }
@@ -201,7 +201,7 @@ void msVmsItr()
             time2 += time;
 
             #ifdef DEBUG
-            assert(verifySorted(arr,arrSize));
+            //assert(verifySorted(arr,arrSize));
             #endif
             free(arr);
         }
@@ -215,7 +215,7 @@ void msVmsItr()
         printf("size=%d mergeSort=%lf mergeSortItr = %lf \n",arrSize,time1,time2);
         #endif
         
-        arrSize+=10000;
+        arrSize+=INCREMENT_SIZE;
     }
     fclose(fptr);
 
@@ -254,7 +254,7 @@ void qsVmsVhs()
             time1 += time;
 
             #ifdef DEBUG
-            assert(verifySorted(arr,arrSize));
+            //assert(verifySorted(arr,arrSize));
             #endif
             free(arr);
         }
@@ -270,7 +270,7 @@ void qsVmsVhs()
             time2 += time;
 
             #ifdef DEBUG
-            assert(verifySorted(arr,arrSize));
+            //assert(verifySorted(arr,arrSize));
             #endif
             free(arr);
         }
@@ -286,7 +286,7 @@ void qsVmsVhs()
             time3 += time;
 
             #ifdef DEBUG
-            assert(verifySorted(arr,arrSize));
+            //assert(verifySorted(arr,arrSize));
             #endif
             free(arr);
         }
@@ -301,7 +301,7 @@ void qsVmsVhs()
         printf("size=%d quicksort=%lf mergeSort = %lf heapSort=%lf\n",arrSize,time1,time2,time3);
         #endif
         
-        arrSize+=10000;
+        arrSize+=INCREMENT_SIZE;
     }
     fclose(fptr);
 
@@ -342,7 +342,7 @@ void qsVmsVhsItr()
             time1 += time;
 
             #ifdef DEBUG
-            assert(verifySorted(arr,arrSize));
+            //assert(verifySorted(arr,arrSize));
             #endif
             free(arr);
         }
@@ -358,7 +358,7 @@ void qsVmsVhsItr()
             time2 += time;
 
             #ifdef DEBUG
-            assert(verifySorted(arr,arrSize));
+            //assertassert(verifySorted(arr,arrSize));
             #endif
             free(arr);
         }
@@ -374,7 +374,7 @@ void qsVmsVhsItr()
             time3 += time;
 
             #ifdef DEBUG
-            assert(verifySorted(arr,arrSize));
+            //assert(verifySorted(arr,arrSize));
             #endif
             free(arr);
         }
@@ -389,7 +389,7 @@ void qsVmsVhsItr()
         printf("size=%d quicksortItr=%lf mergeSortItr = %lf heapSortItr=%lf\n",arrSize,time1,time2,time3);
         #endif
         
-        arrSize+=10000;
+        arrSize+=INCREMENT_SIZE;
     }
     fclose(fptr);
 

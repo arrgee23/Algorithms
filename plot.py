@@ -21,14 +21,14 @@ for line in open('qsVmsVhs.dat', 'r'):
         X.append(values[3]);
     
 #print(X)
-plt.figure(figsize=(20,20));
+plt.figure(figsize=(10,10));
 plt.xlabel('No of items');
-plt.ylabel('Time(ms)');
+plt.ylabel('Time(s)');
 plt.plot(X,Y1,label="Quicksort");
 plt.plot(X,Y2,label="Mergesort");
 plt.plot(X,Y3,label="Heapsort");
 
-plt.legend(bbox_to_anchor=(0., 1.02, 1., 2.102), loc=3, ncol=2, mode="expand", borderaxespad=0.);
+plt.legend();
 #plt.show();
 plt.savefig('qsVmsVhs.png');
 
@@ -54,15 +54,14 @@ for line in open('qsVmsVhsItr.dat', 'r'):
         X.append(values[3]);
     
 #print(X)
-plt.figure(figsize=(20,20));
+plt.figure(figsize=(10,10));
 plt.xlabel('No of items');
-plt.ylabel('Time(ms)');
+plt.ylabel('Time(s)');
 plt.plot(X,Y1,label="Quicksort Iterative");
 plt.plot(X,Y2,label="Mergesort Iterative");
 plt.plot(X,Y3,label="Heapsort Iterative");
 
-plt.legend(bbox_to_anchor=(0., 1.02, 1., 2.102), loc=3, ncol=2, mode="expand", borderaxespad=0.);
-#plt.show();
+plt.legend();
 plt.savefig('qsVmsVhsItr.png');
 
 ######### quicksort normal vs itr
@@ -85,14 +84,13 @@ for line in open('qsVqsItr.dat', 'r'):
         X.append(values[2]);
     
 #print(X)
-plt.figure(figsize=(20,20));
+plt.figure(figsize=(10,10));
 plt.xlabel('No of items');
-plt.ylabel('Time(ms)');
+plt.ylabel('Time(s)');
 plt.plot(X,Y1,label="Quicksort");
 plt.plot(X,Y2,label="Quicksort Iterative");
 
-plt.legend(bbox_to_anchor=(0., 1.02, 1., 2.102), loc=3, ncol=2, mode="expand", borderaxespad=0.);
-#plt.show();
+plt.legend();
 plt.savefig('qsVqsItr.png');
          
 ######
@@ -115,14 +113,13 @@ for line in open('msVmsItr.dat', 'r'):
         X.append(values[2]);
     
 #print(X)
-plt.figure(figsize=(20,20));
+plt.figure(figsize=(10,10));
 plt.xlabel('No of items');
-plt.ylabel('Time(ms)');
+plt.ylabel('Time(s)');
 plt.plot(X,Y1,label="MergeSort");
 plt.plot(X,Y2,label="MergeSort Iterative");
 
-plt.legend(bbox_to_anchor=(0., 1.02, 1., 2.102), loc=3, ncol=2, mode="expand", borderaxespad=0.);
-#plt.show();
+plt.legend();
 plt.savefig('msVmsItr.png');
          
          
@@ -146,12 +143,11 @@ for line in open('hsVhsItr.dat', 'r'):
         X.append(values[2]);
     
 #print(X)
-plt.figure(figsize=(20,20));
+plt.figure(figsize=(10,10));
 plt.xlabel('No of items');
-plt.ylabel('Time(ms)');
+plt.ylabel('Time(s)');
 plt.plot(X,Y1,label="heapSort");
 plt.plot(X,Y2,label="heapSort Iterative");
 
-plt.legend(bbox_to_anchor=(0., 1.02, 1., 2.102), loc=3, ncol=2, mode="expand", borderaxespad=0.);
-#plt.show();
+plt.legend();
 plt.savefig('hsVhsItr.png');
