@@ -13,9 +13,18 @@
 #define ITERATION_FOR_AVG 5
 #define DEBUG
 
+struct pair
+{
+    int x;
+    int y;
+};
+typedef struct pair PAIR;
+
 void printArr(int* arr,int n);
 void printRange(int* arr,int l,int r);
 
+// insertionsort
+void insertionSort(int arr[], int n);
 
 // returns pivot index
 int partition(int *arr,int l,int r);

@@ -395,17 +395,123 @@ void qsVmsVhsItr()
 
 }
 
+void qsVmsVhsVIsItr()
+{
+    clock_t start, end;
+    double time;
+    int arrSize = 10000;
+    int i=0;
+    
+    FILE *fptr;
+
+    fptr = fopen("foursort.dat", "w");
+    if(fptr == NULL)
+    {
+      printf("Error!");
+      exit(1);
+    }
+
+    while(arrSize<100001)
+    {
+        // take avg time for five runs
+        double time1=0,time2=0,time3=0,time4 = 0;
+        
+        for(i=0;i<ITERATION_FOR_AVG;i++)
+        {
+            int* arr = generateRandArr(arrSize);
+            
+            start = clock();
+            quickSortItr(arr,arrSize);
+
+            end = clock();
+            time = ((double) (end - start)) / CLOCKS_PER_SEC;
+            time1 += time;
+
+            #ifdef DEBUG
+            //assert(verifySorted(arr,arrSize));
+            #endif
+            free(arr);
+        }
+        
+        for(i=0;i<ITERATION_FOR_AVG;i++)
+        {
+            int* arr = generateRandArr(arrSize);
+            
+            start = clock();
+            mergeSortIter(arr,0,arrSize-1);
+            end = clock();
+            time = ((double) (end - start)) / CLOCKS_PER_SEC;
+            time2 += time;
+
+            #ifdef DEBUG
+            //assertassert(verifySorted(arr,arrSize));
+            #endif
+            free(arr);
+        }
+        
+        for(i=0;i<ITERATION_FOR_AVG;i++)
+        {
+            int* arr = generateRandArr(arrSize);
+            
+            start = clock();
+            heapSortIter(arr,arrSize);
+            end = clock();
+            time = ((double) (end - start)) / CLOCKS_PER_SEC;
+            time3 += time;
+
+            #ifdef DEBUG
+            //assert(verifySorted(arr,arrSize));
+            #endif
+            free(arr);
+        }
+
+        for(i=0;i<ITERATION_FOR_AVG;i++)
+        {
+            int* arr = generateRandArr(arrSize);
+            
+            start = clock();
+            insertionSort(arr,arrSize);
+            end = clock();
+            time = ((double) (end - start)) / CLOCKS_PER_SEC;
+            time4 += time;
+
+            #ifdef DEBUG
+            //assert(verifySorted(arr,arrSize));
+            #endif
+            free(arr);
+        }
+        
+        time1 = time1/ITERATION_FOR_AVG;
+        time2 = time2/ITERATION_FOR_AVG;
+        time3 = time3/ITERATION_FOR_AVG;
+        time4 = time4/ITERATION_FOR_AVG;
+        
+        // write in a file for plotting purpose
+        fprintf(fptr,"%lf %lf %lf %lf %d\n",time1,time2,time3,time4,arrSize);
+        #ifdef DEBUG
+        printf("size=%d quicksortItr=%lf mergeSortItr = %lf heapSortItr=%lf InsSort=%lf\n",arrSize,time1,time2,time3,time4);
+        #endif
+        
+        arrSize+=INCREMENT_SIZE;
+    }
+    fclose(fptr);
+
+}
 //Mergesort recursive vs iterative
 
 
 
 int main()
 {
-    //quickSort(arr,0,sizeof(arr)/sizeof(int)-1);
+    /*
+    quickSort(arr,0,sizeof(arr)/sizeof(int)-1);
+    */
     qsVqsItr();
     printf("Done\n");
     msVmsItr();printf("Done\n");
     hsVhsItr();printf("Done\n");
     qsVmsVhs();printf("Done\n");
     qsVmsVhsItr();printf("Done\n");
+    
+    qsVmsVhsVIsItr();
 }

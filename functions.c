@@ -13,6 +13,12 @@
 #include <time.h>
 #include <assert.h>
 
+
+int min(int a,int b)
+{
+    return a>b?b:a;
+}
+
 void printArr(int* arr,int n)
 {
     int i =0;
@@ -33,6 +39,7 @@ void printRange(int* arr,int l,int r)
     }
     printf("\n");
 }
+
 // returns pivot index
 int partition(int *arr,int l,int r)
 {
@@ -43,8 +50,10 @@ int partition(int *arr,int l,int r)
     //printf("B: ");printRange(arr,l,r);
     for(i=l;i<r;i++)
     {
+        //*compCount++;
         if(arr[i]<=pivot)
-        { //swap
+        {   //swap
+            //*swapCount++;
             t = arr[idx];
             arr[idx++] = arr[i];
             arr[i] = t;
@@ -84,6 +93,7 @@ void quickSortItr(int* arr, int len)
     push(stack,&top,len-1);
     
     int popIdx,peekIdx,pivotIdx;
+    int swapCount = 0,compCount = 0;
     // invariant: top two will contain the unsorted part intervals ascending ex: 0..3, 5..7
     for(i=0;i<len;i++)
     {
@@ -133,8 +143,30 @@ void quickSortItr(int* arr, int len)
     free(stack);
 }
 
+/* Function to sort an array using insertion sort*/
+void insertionSort(int arr[], int n) 
+{ 
+   int i, key, j; 
+   for (i = 1; i < n; i++) 
+   { 
+       key = arr[i]; 
+       j = i-1; 
+  
+       /* Move elements of arr[0..i-1], that are 
+          greater than key, to one position ahead 
+          of their current position */
+       while (j >= 0 && arr[j] > key) 
+       { 
+           arr[j+1] = arr[j]; 
+           j = j-1; 
+       } 
+       arr[j+1] = key; 
+   } 
+} 
+
 void quickSort(int* arr,int l,int r)
 {
+
     if(l<r)
     {
         int i = partition(arr,l,r);
@@ -142,6 +174,7 @@ void quickSort(int* arr,int l,int r)
         quickSort(arr,i+1,r);
     }
 }
+
 
 void merge(int* arr,int l,int m,int r)
 {
@@ -187,10 +220,6 @@ void merge(int* arr,int l,int m,int r)
 
 }
 
-int min(int a,int b)
-{
-    return a>b?b:a;
-}
 void mergeSortIter(int* arr,int l, int r)
 {
     int mergeSize = 1; 
@@ -235,7 +264,7 @@ int* generateRandArr(int size)
     int* arr = (int*)malloc(size*sizeof(int));
     assert(arr!=NULL);
     for(i=0;i<size;i++){
-        arr[i]=(rand()%101);
+        arr[i]=(rand()%100000);
     }
     return arr;
 }
