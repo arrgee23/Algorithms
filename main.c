@@ -40,12 +40,14 @@ void profileFunction(int n)
       exit(1);
     }
     TRIPLE t;
-    int swaps = 0,comp = 0;
+    long long int swaps = 0,comp = 0;
     double time = 0;
 
     while(arrSize<END_SIZE)
     {
-        
+        swaps = 0;
+        comp = 0;
+        time = 0;
 
         for(i=0;i<ITERATION_FOR_AVG;i++)
         {
@@ -67,9 +69,9 @@ void profileFunction(int n)
         time /=ITERATION_FOR_AVG;
 
         // write in a file for plotting purpose
-        fprintf(fptr,"%d %d %lf %d\n",comp,swaps,time,arrSize);
+        fprintf(fptr,"%lld %lld %lf %d\n",comp,swaps,time,arrSize);
         #ifdef DEBUG
-            fprintf(stdout,"%d %d %lf %d\n",comp,swaps,time,arrSize);
+            fprintf(stdout,"%lld %lld %lf %d\n",comp,swaps,time,arrSize);
         #endif
         
         arrSize+=INCREMENT_SIZE;
@@ -77,6 +79,97 @@ void profileFunction(int n)
     fclose(fptr);
 }
 
+
+void compareIterativeRecursiveQsort()
+{
+    int arrSize = START_SIZE;
+    int i=0;
+    
+    FILE *fptr,*fptr2;
+
+    fptr = fopen(nameArr[0], "w");
+    fptr2= fopen(nameArr[1],"w");
+    if(fptr == NULL || fptr2 == NULL)
+    {
+      printf("Error!");
+      exit(1);
+    }
+    TRIPLE t;
+    long long int swaps = 0,comp = 0;
+    double time = 0;
+
+    while(arrSize<END_SIZE)
+    {
+        int* arr = generateRandArr(arrSize);
+        int* copyArr = malloc(arrSize*sizeof(int));
+        int k;
+        for(k=0;k<arrSize;k++)
+        {
+            copyArr[k] = arr[k];
+        }
+        swaps = 0;
+        comp = 0;
+        time = 0;
+
+        for(i=0;i<ITERATION_FOR_AVG;i++)
+        {
+            
+            t = fun_ptr_arr[0](arr,0,arrSize-1);
+
+            comp += t.compCount;
+            swaps += t.swapCount;
+            time+=t.time;
+
+            #ifdef DEBUG
+            assert(verifySorted(arr,arrSize));
+            #endif
+            //free(arr);
+        }
+      
+        comp /= ITERATION_FOR_AVG;
+        swaps /= ITERATION_FOR_AVG;
+        time /=ITERATION_FOR_AVG;
+        
+
+        // write in a file for plotting purpose
+        fprintf(fptr,"%lld %lld %lf %d\n",comp,swaps,time,arrSize);
+        #ifdef DEBUG
+            fprintf(stdout,"%lld %lld %lf %d\n",comp,swaps,time,arrSize);
+        #endif
+
+        swaps = 0;
+        comp = 0;
+        time = 0;
+        
+        for(i=0;i<ITERATION_FOR_AVG;i++)
+        {
+            
+            t = fun_ptr_arr[1](copyArr,0,arrSize-1);
+
+            comp += t.compCount;
+            swaps += t.swapCount;
+            time+=t.time;
+
+            #ifdef DEBUG
+            assert(verifySorted(copyArr,arrSize));
+            #endif
+            //free(arr);
+        }
+      
+        comp /= ITERATION_FOR_AVG;
+        swaps /= ITERATION_FOR_AVG;
+        time /=ITERATION_FOR_AVG;
+
+        // write in a file for plotting purpose
+        fprintf(fptr2,"%lld %lld %lf %d\n",comp,swaps,time,arrSize);
+        #ifdef DEBUG
+            fprintf(stdout,"%lld %lld %lf %d\n",comp,swaps,time,arrSize);
+        #endif
+
+        arrSize+=INCREMENT_SIZE;
+    }
+    fclose(fptr);
+}
 int main()
 {
     /*
@@ -91,11 +184,26 @@ int main()
     
     qsVmsVhsVIsItr();
     */
+    /*
     int i=0;
     for( i = 0; i < 6; i++)
     {
         printf("%s\n",nameArr[i]);
         profileFunction(i);
     }
+    */
+    compareIterativeRecursiveQsort();
+    /*
+    int* arr = generateRandArr(10);
+    int* copyArr = malloc(10*sizeof(int));
+    int k;
     
+    for(k=0;k<10;k++)
+    {
+        copyArr[k] = arr[k];
+    }
+    TRIPLE t;
+    quickSort(arr,0,9,&t);
+    quickSortItr(copyArr,10,&t);
+    */
 }

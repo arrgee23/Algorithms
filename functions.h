@@ -8,7 +8,7 @@
 
 #define INCREMENT_SIZE 5000
 #define START_SIZE 10000
-#define END_SIZE 150001
+#define END_SIZE 100001
 #define BIG_INT 99999999
 #define MAX_ARR_SIZE 150001
 #define ITERATION_FOR_AVG 5
@@ -23,8 +23,8 @@ typedef struct pair PAIR;
 
 struct triple
 {
-    int compCount;
-    int swapCount;
+    long long int compCount;
+    long long int swapCount;
     double time;
 };
 typedef struct triple TRIPLE;

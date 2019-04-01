@@ -78,7 +78,8 @@ plotGraph(tt,[sortnames[3],sortnames[4],sortnames[5]],[properties[1]],"Iterative
 plotGraph(tt,[sortnames[3],sortnames[4],sortnames[5]],[properties[2]],"IterativeSorttime.png",yAxisName="time");
 """
 
-plotGraph(tt,[sortnames[3],sortnames[4],sortnames[5]],[properties[0]],"IterativeSortComparisons.png",yAxisName="comparisons")
-plotGraph(tt,[sortnames[0],sortnames[3]],[properties[2]],"qsVqsI.png",yAxisName="time(s)")
-plotGraph(tt,[sortnames[1],sortnames[4]],[properties[2]],"msVmsI.png",yAxisName="time(s)")
-plotGraph(tt,[sortnames[2],sortnames[5]],[properties[2]],"hsVhsI.png",yAxisName="time(s)")
+#plotGraph(tt,[sortnames[3],sortnames[4],sortnames[5]],[properties[0]],"IterativeSortComparisons.png",yAxisName="comparisons")
+#plotGraph(tt,[sortnames[0],sortnames[3]],[properties[2]],"qsVqsI.png",yAxisName="time(s)")
+#plotGraph(tt,[sortnames[1],sortnames[4]],[properties[2]],"msVmsI.png",yAxisName="time(s)")
+#plotGraph(tt,[sortnames[2],sortnames[5]],[properties[2]],"hsVhsI.png",yAxisName="time(s)")
+plotGraph(tt,[sortnames[0],sortnames[3]],[properties[2]],"aaaaaa.png",yAxisName="time")
