@@ -1,3 +1,8 @@
+Various sorts and their comparison graphs. Includes a python file for generating plots for all the sorts. Can be easily extended for including 
+different sorts and plots.
+C files: main.c, functions.c, functions.h
+python files: plot.py
+______________________________________________________________________________________________________________________________________________________
 1> Build Instruction: gcc main.c functions.c 
 
 2> running: ./a.out
