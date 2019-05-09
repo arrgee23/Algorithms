@@ -19,6 +19,9 @@ Implementation of algorithmic problems in c as part of Mtech Course.
 * Function to create graph from array.
 
 # Content  
+## Assignment1
   C files: main.c, functions.c, functions.h
   python files: plot.py
 
+## Assignment 2
+  graphadt.c graphadt.h, q1-q5.c
